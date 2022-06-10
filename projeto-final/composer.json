@@ -1,0 +1,19 @@
+{
+    "name": "joaop/projeto-final",
+    "description": "Projeto final da sprint de POO da beAcademy. Guiada pelo facilitador Alessandro Feitoza.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Pedro Holanda Neves",
+            "email": "joaopedroholandaneves@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^1.2"
+    }
+}
