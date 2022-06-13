@@ -2,46 +2,63 @@
 
 # 📂 PROJETO FINAL
 
-## AULA 25 ⇆ 31
-
-- Arquitetura MVC
-- Controllers
-- Views
-- Controller abstrato
-- Roteamento
+## AULA 07 ⇆ 21
 
 ### Layout de pastas e arquivos
 
 ```sh
-projeto-final/
+projeto-final
 │   composer.json
+│   composer.lock
 │   README.md
-├───config/
-├───public/
+│   
+├───config
+│       routes.php
+│       
+├───db
+│       store.sql
+│       
+├───public
 │       index.php
-└───src/
-    ├───Controller/
+│       
+└───src
+    ├───Connection
+    │       Connection.php
+    │       
+    ├───Controller
     │       AbstractController.php
     │       CategoryController.php
     │       ErrorController.php
     │       IndexController.php
     │       ProductController.php
-    ├───Model/
+    │       
+    ├───Model
     └───View
-        │   teste.php
-        ├───category/
+        │   report.php
+        │   
+        ├───category
         │       add.php
+        │       delete.php
         │       edit.php
         │       list.php
-        ├───error/
+        │       
+        ├───error
         │       404.php
-        ├───index/
+        │       
+        ├───index
         │       index.php
         │       login.php
-        └───product/
-                add.php
-                edit.php
-                list.php
+        │
+        ├───product
+        │       add.php
+        │       delete.php
+        │       edit.php
+        │       list.php
+        │
+        └───_partials
+                footer.php
+                header.php
+                message.php
 ```
 
 ## UTILIZAÇÃO
@@ -60,10 +77,8 @@ git clone https://github.com/Jphn/beacademy-devstart-poo.git
 ```sh
 # Acesse a pasta do repositório
 cd ./beacademy-devstart-poo/projeto-final/
-# Instalação de dependências
+# Instalação de dependências e geração do arquivo de carregamento automático das classes
 composer install
-# Geração do arquivo de carregamento automático das classes
-composer dump-autoload
 # Inicialização do servidor PHP
 php -S localhost:8000 -t ./public/
 ```
