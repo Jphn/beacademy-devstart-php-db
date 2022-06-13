@@ -88,6 +88,20 @@ php -S localhost:8000 -t ./public/
 php -S localhost:8000 -t ./beacademy-devstart-crud-contatos-php/projeto-final/public/
 ```
 
+## STACK
+
+**Front-end:** Bootstrap
+
+**Back-end:** PHP
+
+**Database:** MariaDB
+
+## FERRAMENTAS
+
+- VSCode
+  - PHP Tools (Extension)
+- Google Chrome
+
 ## AUTOR
 
 [@Jphn](https://github.com/Jphn)
