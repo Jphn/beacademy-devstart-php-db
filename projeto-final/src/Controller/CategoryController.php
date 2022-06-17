@@ -1,21 +1,20 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1)
+;
 
 namespace App\Controller;
 
 use App\Connection\Connection;
+use App\Model\Category;
 
 class CategoryController extends AbstractController
 {
 	public function readAction(): void
 	{
-		$con = Connection::getConnection();
+		$result = (new Category())->read();
 
-		$result = $con->prepare('SELECT * FROM category;');
-		$result->execute();
-
-		parent::render('category/list', $result->fetchAll(\PDO::FETCH_ASSOC));
+		parent::render('category/list', $result);
 	}
 
 	public function createAction(): void
@@ -23,12 +22,7 @@ class CategoryController extends AbstractController
 		if ($_POST) {
 			extract($_POST);
 
-			$query = "INSERT INTO category (name, description) VALUES ('{$name}', '{$description}')";
-
-			$con = Connection::getConnection();
-
-			$result = $con->prepare($query);
-			$result->execute();
+			(new Category($name, $description))->create();
 
 			echo "Categoria criada com sucesso!";
 		}
@@ -38,38 +32,25 @@ class CategoryController extends AbstractController
 
 	public function deleteAction(): void
 	{
-		$id = $_GET['id'] ?? 0;
+		$id = $_GET['id'] ?? '0';
 
-		$con = Connection::getConnection();
-
-		$query = "DELETE FROM category WHERE id = {$id};";
-
-		$result = $con->prepare($query);
-		$result->execute();
+		(new Category())->delete($id);
 
 		parent::render('category/delete');
 	}
 
 	public function updateAction(): void
 	{
-		$id = $_GET['id'] ?? 0;
-
-		$con = Connection::getConnection();
+		$id = $_GET['id'] ?? '0';
 
 		if ($_POST) {
 			extract($_POST);
 
-			$query = "UPDATE category SET name = '{$name}', description = '{$description}' WHERE id = {$id};";
-
-			$result = $con->prepare($query);
-			$result->execute();
+			(new Category($name, $description))->update($id);
 		}
 
-		$query = "SELECT name, description FROM category WHERE id = {$id};";
+		$result = (new Category())->read($id);
 
-		$result = $con->prepare($query);
-		$result->execute();
-
-		parent::render('category/edit', $result->fetch(\PDO::FETCH_ASSOC));
+		parent::render('category/edit', $result[0]);
 	}
 }

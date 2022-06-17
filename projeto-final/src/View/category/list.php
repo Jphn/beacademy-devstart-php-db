@@ -11,22 +11,22 @@
 	<tbody>
 		<?php
 
-		foreach ($data as $category) {
-			extract($category);
+foreach ($data as $category) {
+	extract($category);
 
-			echo '<tr>';
+	echo '<tr>';
 
-			echo "<th>{$id}</th>";
-			echo "<td>{$name}</td>";
-			echo "<td>{$description}</td>";
-			echo "<td>
-			<a class='btn btn-warning btn-sm' href='/categories/update?id={$id}'>Editar</a>
-			<a class='btn btn-danger btn-sm' href='/categories/delete?id={$id}'>Apagar</a>
+	echo "<th>{$id}</th>";
+	echo "<td>{$name}</td>";
+	echo "<td>{$description}</td>";
+	echo "<td>
+			<a class='btn btn-warning btn-sm' href='/categorias/atualizar?id={$id}'>Editar</a>
+			<a class='btn btn-danger btn-sm' href='/categorias/deletar?id={$id}'>Apagar</a>
 			</td>";
 
-			echo '</tr>';
-		}
+	echo '</tr>';
+}
 
-		?>
+?>
 	</tbody>
 </table>

@@ -6,16 +6,16 @@
 	<select name="category" class="form-control mt-3" required>
 		<option value="" selected disabled>SELECIONE UMA CATEGORIA</option>
 		<?php
-		foreach ($data['category'] as $category) {
-			extract($category);
+foreach ($data['category'] as $category) {
+	extract($category);
 
-			echo "<option value='{$id}'>{$name}</option>";
-		}
-		?>
+	echo "<option value='{$id}'>{$name}</option>";
+}
+?>
 	</select>
 	<?php
-	extract($data['product']);
-	?>
+extract($data['product']);
+?>
 	<input value="<?php echo $name; ?>" required name="name" type="text" class="form-control mt-2" placeholder="Digite o nome da categoria...">
 	<input value="<?php echo $image; ?>" required name="image" type="text" class="form-control mt-2" placeholder="Cole aqui a url da imagem...">
 	<input value="<?php echo $price; ?>" required name="price" type="number" class="form-control mt-2" placeholder="Digite o valor do produto...">
